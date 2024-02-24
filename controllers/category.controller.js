@@ -1,22 +1,24 @@
-const pizzaService = require('../services/pizza.service');
-const requireFields = ['flavor', 'price'];
+const Category = require('../models/category.model');
+
+const categoryService = require('../services/category.service');
+const requireFields = ['name'];
 
 const create = async (req, res) => {
   try {
-    const pizzaData = req.body;
-    if (Object.keys(pizzaData).length === 0) {
+    const categoryData = req.body;
+    if (Object.keys(categoryData).length === 0) {
       return res.status(400).send({ message: 'Invalid body request' });
     }
 
-    const missingFields = requireFields.filter((field) => !pizzaData[field]);
+    const missingFields = requireFields.filter((field) => !categoryData[field]);
     if (missingFields.length > 0) {
       return res.status(400).send({
         message: `Please fill the field(s): ${missingFields.join(', ')}`
       });
     }
 
-    const pizza = await pizzaService.createPizza(pizzaData);
-    res.status(201).send(pizza);
+    const category = await categoryService.createCategory(categoryData);
+    res.status(201).send(category);
   } catch (error) {
     console.error(error);
     res.status(500).send({ message: 'Internal Server Error' });
@@ -25,8 +27,8 @@ const create = async (req, res) => {
 
 const findAll = async (req, res) => {
   try {
-    const pizzas = await pizzaService.findAllPizzas();
-    res.status(200).send(pizzas);
+    const category = await categoryService.findAllCategory();
+    res.status(200).send(category);
   } catch (error) {
     console.error(error);
     res.status(500).send({ message: 'Internal Server Error' });
@@ -36,11 +38,13 @@ const findAll = async (req, res) => {
 const findById = async (req, res) => {
   try {
     const id = req.params.id;
-    const pizza = await pizzaService.findPizzaById(id);
-    if (!pizza) {
-      return res.status(404).send({ message: `Pizza with ID ${id} not found` });
+    const category = await categoryService.findCategoryById(id);
+    if (!category) {
+      return res
+        .status(404)
+        .send({ message: `Category with ID ${id} not found` });
     }
-    res.status(200).send(pizza);
+    res.status(200).send(category);
   } catch (error) {
     console.error(error);
     res.status(500).send({ message: 'Internal Server Error' });
@@ -50,24 +54,29 @@ const findById = async (req, res) => {
 const update = async (req, res) => {
   try {
     const id = req.params.id;
-    const pizzaData = req.body;
-    if (Object.keys(pizzaData).length === 0) {
+    const categoryData = req.body;
+    if (Object.keys(categoryData).length === 0) {
       return res.status(400).send({ message: 'Invalid body request' });
     }
 
-    const missingFields = requireFields.filter((field) => !pizzaData[field]);
+    const missingFields = requireFields.filter((field) => !categoryData[field]);
     if (missingFields.length > 0) {
       return res.status(400).send({
         message: `Please fill the field(s): ${missingFields.join(', ')}`
       });
     }
 
-    const updatedPizza = await pizzaService.updatePizza(id, pizzaData);
-    if (!updatedPizza) {
-      return res.status(404).send({ message: `Pizza with ID ${id} not found` });
+    const updatedCategory = await categoryService.updateCategory(
+      id,
+      categoryData
+    );
+    if (!updatedCategory) {
+      return res
+        .status(404)
+        .send({ message: `Category with ID ${id} not found` });
     }
 
-    res.status(200).send(updatedPizza);
+    res.status(200).send(updatedCategory);
   } catch (error) {
     console.error(error);
     res.status(500).send({ message: 'Internal Server Error' });
@@ -77,11 +86,13 @@ const update = async (req, res) => {
 const deleteById = async (req, res) => {
   try {
     const id = req.params.id;
-    const deletedPizza = await pizzaService.deletePizzaById(id);
-    if (!deletedPizza) {
-      return res.status(404).send({ message: `Pizza with ID ${id} not found` });
+    const deletedCategory = await categoryService.deleteCategory(id);
+    if (!deletedCategory) {
+      return res
+        .status(404)
+        .send({ message: `Category with ID ${id} not found` });
     }
-    res.status(200).send({ message: 'Pizza deleted successfully' });
+    res.status(200).send({ message: 'Category deleted successfully' });
   } catch (error) {
     console.error(error);
     res.status(500).send({ message: 'Internal Server Error' });

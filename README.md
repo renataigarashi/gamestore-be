@@ -1,14 +1,14 @@
-# Projeto Pizzaria
+# Projeto Gamestore
 
 ## Descrição
 
-Este é um projeto de uma API de Pizzaria, que inclui operações CRUD (Create, Read, Update, Delete) para pizzas.
+Este é um projeto de uma API de uma loja de games, que inclui operações CRUD (Create, Read, Update, Delete) p.
 
 ## Funcionalidades
 
-- Criação, leitura, atualização e exclusão de pizzas
+- Criação, leitura, atualização e exclusão
 - Registro e autenticação de usuários
-A criação, atualização e exclusão de uma pizza só pode ser feito por um usuário autenticado.
+  A criação, atualização e exclusão de um item só pode ser feito por um usuário autenticado.
 
 ## Tecnologias Utilizadas
 
@@ -21,18 +21,18 @@ A criação, atualização e exclusão de uma pizza só pode ser feito por um us
 
 ## Instalação
 
-1. Clone o repositório: `git clone https://github.com/seu-usuario/nome-do-repositorio.git`
+1. Clone o repositório: `git clone https://github.com/renataigarashi/gamestore-be`
 2. Instale as dependências: `npm install`
 3. Inicie o servidor: `npm run dev`
 4. Acesse a API em `http://localhost:3000`
 
 ## Rotas da API
 
-- `/pizza/create`: POST - Criar uma nova pizza
-- `/pizza/findAll`: GET - Encontrar todas as pizzas
-- `/pizza/findById/:id`: GET - Encontrar uma pizza por ID
-- `/pizza/update/:id`: PUT - Atualizar uma pizza por ID
-- `/pizza/delete/:id`: DELETE - Deletar uma pizza por ID
+- `/product/create`: POST - Criar um novo produto
+- `/product/findAll`: GET - Encontrar todas as produto
+- `/product/findById/:id`: GET - Encontrar uma produto por ID
+- `/product/update/:id`: PUT - Atualizar uma produto por ID
+- `/product/delete/:id`: DELETE - Deletar uma produto por ID
 - `/user/register`: POST - Registrar um novo usuário
 - `/user/login`: POST - Autenticar um usuário
 - `/user/verify-token`: GET - Verificar a validade do token do usuário
@@ -47,10 +47,9 @@ A criação, atualização e exclusão de uma pizza só pode ser feito por um us
 ├── routes/
 ├── services/
 └── index.js
-└── swagger.json
+
 
 ```
 
-
-## Documentação da API
-A documentação da API pode ser acessada em http://localhost:3000/api-docs.
+"# gamestore-be"
+"# gamestore-be" 
