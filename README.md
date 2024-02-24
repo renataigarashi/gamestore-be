@@ -38,5 +38,5 @@ Este é um projeto de uma API de uma loja de games, que inclui operações CRUD 
 ├── services/
 └── index.js
 
-
 ```
+O frontend do projeto pode ser acessado em: [https://github.com/renataigarashi/gamestore](https://github.com/renataigarashi/gamestore)
