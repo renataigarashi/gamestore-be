@@ -2,7 +2,7 @@
 
 ## Descrição
 
-Este é um projeto de uma API de uma loja de games, que inclui operações CRUD (Create, Read, Update, Delete) p.
+Este é um projeto de uma API de uma loja de games, que inclui operações CRUD (Create, Read, Update, Delete).
 
 ## Funcionalidades
 
@@ -50,6 +50,3 @@ Este é um projeto de uma API de uma loja de games, que inclui operações CRUD 
 
 
 ```
-
-"# gamestore-be"
-"# gamestore-be" 
